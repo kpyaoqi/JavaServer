@@ -1,0 +1,11 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: BlockchainAuctionSystem
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ebay?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+    username: root
+    password:
+
