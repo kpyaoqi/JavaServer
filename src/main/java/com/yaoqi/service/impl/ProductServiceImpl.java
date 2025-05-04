@@ -56,4 +56,11 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         return baseMapper.selectList(wrapper);
     }
+
+    @Override
+    public boolean existsByBlockchainId(Integer blockchainId) {
+        QueryWrapper<Product> wrapper = new QueryWrapper<>();
+        wrapper.eq("blockchain_id", blockchainId);
+        return baseMapper.selectCount(wrapper) > 0;
+    }
 }

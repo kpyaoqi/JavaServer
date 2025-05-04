@@ -29,8 +29,14 @@ public class ProductController {
 
     @RequestMapping("/saveProduct")
     public Boolean saveProduct(@RequestBody Map<String, String> data) {
+        // 检查区块链ID是否已存在
+        Integer blockchainId = Integer.valueOf(data.get("blockchainId"));
+        if (productService.existsByBlockchainId(blockchainId)) {
+            return false;
+        }
+        
         Product product = new Product();
-        product.setBlockchainId(Integer.valueOf(data.get("blockchainId")));
+        product.setBlockchainId(blockchainId);
         product.setProductName(data.get("name"));
         product.setCategory(data.get("category"));
         product.setIpfsImageHash(data.get("ipfsImageHash"));

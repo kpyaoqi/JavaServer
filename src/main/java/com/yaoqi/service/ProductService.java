@@ -16,4 +16,5 @@ import java.util.List;
 public interface ProductService extends IService<Product> {
     List<Product> getProduct(String productStatus);
     List<Product> getProductsByCategory(String productStatus, String category);
+    boolean existsByBlockchainId(Integer blockchainId);
 }
